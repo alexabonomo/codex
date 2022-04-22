@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Livvic:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <section>
+            <article>
+                <div>
+                    <img src="" id="hrDataImg" style="position: absolute; top:0; left: 10;">
+                    <div id="sketch" style="position: absolute; top:0; left: 10;"></div>
+                </div>
+
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="heartrate5.html">back</a></li>
+                <li><a href="heartrate6.html">next</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+<script>
+    var dataImage = localStorage.getItem('imgData');
+    var hr = document.getElementById('hrDataImg');
+    hr.src = dataImage;
+
+    function setup() {
+        let desktopWidth = windowWidth / 1.5;
+        let mobileWidth = windowWidth;
+        cnv = createCanvas(windowWidth * .99, windowHeight * .8);
+        if (windowWidth < 600) {
+            cnv = createCanvas(mobileWidth, 400);
+        }
+        cnv.parent('sketch');
+    }
+
+    function mousePressed(){
+        ellipse(mouseX,mouseY, 100,100)
+    }
+</script>
+
+</html>
